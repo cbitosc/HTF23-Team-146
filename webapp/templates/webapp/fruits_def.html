@@ -1,0 +1,212 @@
+{% extends 'webapp/base.html'%}
+{% block title %}
+Grocery Stores
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<html>
+  <head>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const urlParams = new URLSearchParams(window.location.search);
+          const imageNumber = urlParams.get('image');
+          const imageContentDiv = document.getElementById('imageContent');
+      
+          if (imageNumber === '1') {
+            const apple = [190, 110, 90, 95, 105, 100];
+            const a1=document.getElementById('a');
+            a1.innerHTML=apple[3];
+            document.getElementById('a').innerHTML=apple[0];
+            document.getElementById('2').innerHTML=apple[1];
+            document.getElementById('3').innerHTML=apple[2];
+            document.getElementById('4').innerHTML=apple[3];
+            document.getElementById('5').innerHTML=apple[4];
+            document.getElementById('6').innerHTML=apple[5];
+          } 
+          else if (imageNumber === '2') {
+            const banana = [80, 60, 50, 70, 80, 50];
+            document.getElementById('a').innerHTML=banana[0];
+            document.getElementById('2').innerHTML=banana[1];
+            document.getElementById('3').innerHTML=banana[2];
+            document.getElementById('4').innerHTML=banana[3];
+            document.getElementById('5').innerHTML=banana[4];
+            document.getElementById('6').innerHTML=banana[5];
+          } 
+          else if (imageNumber === '3') {
+            const dragon = [40, 70, 40, 45, 55, 100];
+            document.getElementById('a').innerHTML=dragon[0];
+            document.getElementById('2').innerHTML=dragon[1];
+            document.getElementById('3').innerHTML=dragon[2];
+            document.getElementById('4').innerHTML=dragon[3];
+            document.getElementById('5').innerHTML=dragon[4];
+            document.getElementById('6').innerHTML=dragon[5];
+          } 
+          else if (imageNumber === '4') {
+            const grapes = [60, 60, 80, 75, 95, 100];
+            document.getElementById('a').innerHTML=grapes[0];
+            document.getElementById('2').innerHTML=grapes[1];
+            document.getElementById('3').innerHTML=grapes[2];
+            document.getElementById('4').innerHTML=grapes[3];
+            document.getElementById('5').innerHTML=grapes[4];
+            document.getElementById('6').innerHTML=grapes[5];
+          } 
+          else if (imageNumber === '5') {
+            const mango = [120, 100, 70, 55, 75, 80];
+            document.getElementById('a').innerHTML=mango[0];
+            document.getElementById('2').innerHTML=mango[1];
+            document.getElementById('3').innerHTML=mango[2];
+            document.getElementById('4').innerHTML=mango[3];
+            document.getElementById('5').innerHTML=mango[4];
+            document.getElementById('6').innerHTML=mango[5];
+          } 
+          else if (imageNumber === '6') {
+            const orange= [120, 30, 50, 80, 105, 105];
+            document.getElementById('a').innerHTML=orange[0];
+            document.getElementById('2').innerHTML=orange[1];
+            document.getElementById('3').innerHTML=orange[2];
+            document.getElementById('4').innerHTML=orange[3];
+            document.getElementById('5').innerHTML=orange[4];
+            document.getElementById('6').innerHTML=orange[5];
+          } 
+          // Add more conditions for additional images if needed
+        });
+    </script>
+  </head>
+<style>
+  .container .content {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(255, 255, 255, 0.993); /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+    /* z-index: 2; */
+  }
+ /* Adjust the blur radius as needed */
+
+</style>
+<body>
+<div class="container-fluid">
+  <h1 style="color: rgb(11, 201, 235);" class="text-center">
+    <strong>
+      Grocery Stores
+    </strong>
+  </h1>
+</div>
+<br>
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 ">
+      <img src="{% static 'webapp/images/Dmart.jpeg' %}" alt="dmart" class="img-fluid" width="200" style="border: 4px solid #000; 
+      padding: 10px; 
+      margin: 10px;
+      height: 200px;border-radius: 10px;">
+      <div class="media-body pl-4">
+        <h4>
+            Description: <strong>DMart</strong>
+        </h4>
+        <h4>
+            Min: Rs:<span id="a"></span>
+        </h4>
+        <h4>
+            Status: <strong class="text-success">Open</strong>
+        </h4>
+      </div>
+    </div>
+  
+    <div class="col-md-4 ">
+      <img src="{% static 'webapp/images/Ratnadeep.jpeg' %}" class="img-fluid" width="200" style="border: 4px solid #000; 
+      padding: 10px; 
+      margin: 10px;
+      height: 200px;border-radius: 10px;">
+      <div class="media-body pl-4">
+        <h4>
+            Description: <strong>Ratnadeep</strong>
+        </h4>
+        <h4>
+            Min: Rs:<span id="2"></span>
+        </h4>
+        <h4>
+            Status: <strong class="text-success">Open</strong>
+        </h4>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <img src="{% static 'webapp/images/Reliance.jpeg' %}" class="img-fluid" width="200" style="border: 4px solid #000; 
+      padding: 10px; 
+      margin: 10px;
+      height: 200px;border-radius: 10px;">
+      <div class="media-body pl-4">
+        <h4>
+            Description: <strong>Reliance</strong>
+        </h4>
+        <h4>
+            Min: Rs:<span id="3"></span>
+        </h4>
+        <h4>
+            Status: <strong class="text-success">Open</strong>
+        </h4>
+      </div>
+    </div>
+    <div class="col-md-4">
+    <img src="{% static 'webapp/images/more.jpeg' %}" class="img-fluid" width="200" style="border: 4px solid #000; 
+    padding: 10px; 
+    margin: 10px;
+    height: 200px;border-radius: 10px;">
+    <div class="media-body pl-4">
+      <h4>
+          Description: <strong>More</strong>
+      </h4>
+      <h4>
+          Min: Rs:<span id="4"></span>
+      </h4>
+      <h4>
+          Status: <strong class="text-success">Open</strong>
+      </h4>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <img src="{% static 'webapp/images/fresh.jpeg' %}" class="img-fluid" width="200" style="border: 4px solid #000; 
+    padding: 10px; 
+    margin: 10px;
+    height: 200px;border-radius: 10px;">
+    <div class="media-body pl-4">
+      <h4>
+          Description: <strong>Fresh</strong>
+      </h4>
+      <h4>
+          Min: Rs:<span id="5"></span>
+      </h4>
+      <h4>
+          Status: <strong class="text-success">Open</strong>
+      </h4>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <img src="{% static 'webapp/images/vijetha.jpeg' %}" class="img-fluid" width="200" style="border: 4px solid #000; 
+    padding: 10px; 
+    margin: 10px;
+    height: 200px;border-radius: 10px;">
+    <div class="media-body pl-4">
+      <h4>
+          Description: <strong>Vijetha</strong>
+      </h4>
+      <h4>
+          Min: Rs:<span id="6"></span>
+      </h4>
+      <h4>
+          Status: <strong class="text-success">Open</strong>
+      </h4>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'webapp/base.html' %}
+{% block title %}
+Fruits
+{% endblock %} 
+
+
+{% block body %}
+{% load static %}
+<center><h1>Fruits</h1></center>
+<style>
+   
+   img {
+        width: 200px;
+        height: 200px;
+        border: 4px solid #000; 
+        padding: 10px; 
+        margin: 10px; 
+        border-radius: 10px;
+        transition: padding 0.3s, transform 0.3s; /* Transition for padding and transform */
+    }
+
+    img:hover {
+        padding: 20px; /* Increase padding on hover */
+        transform: scale(1.1); /* Scale the image on hover */
+    }
+    
+</style>
+<div class="container" style="margin-left: 170px;">
+    
+    <div class="row" style="margin-left:0px;">
+        <div class="col-md-4">
+            <div class="frame">
+                <a href="{% url 'fruits_def' %}?image=1">
+                    <img src="{% static 'webapp/images/apple.jpeg' %}"  alt="Apple" class="img-fluid" width="200" style="border: 4px solid #000; 
+                    padding: 5px; 
+                    margin: 5px; height: 200px; border-radius:10px ;  ">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="frame">
+                <a href="{% url 'fruits_def' %}?image=2">
+                    <img src="{% static 'webapp/images/banana.jpeg' %}" alt="Banana" class="img-fluid" width="200"style=" border: 4px solid #000; 
+                    padding: 10px; 
+                    margin: 10px;
+                    height: 200px;border-radius: 10px; ">
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="frame">
+                <a href="{% url 'fruits_def' %}?image=3">
+                    <img src="{% static 'webapp/images/dragon.jpeg' %}" alt="Dragon Fruit" class="img-fluid" width="200" style="border: 4px solid #000; 
+                    padding: 10px; 
+                    margin: 10px; 
+                    height: 200px; border-radius: 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="frame">
+                <a href="{% url 'fruits_def' %}?image=4">
+                    <img src="{% static 'webapp/images/grapes.jpeg' %}" alt="Grapes" class="img-fluid" width="200" style="border: 4px solid #000; 
+                    padding: 10px; 
+                    margin: 10px;
+                    height: 200px;border-radius: 10px; ">
+                </a>
+            </div>
+        </div>
+            <div class="col-md-4">
+                <div class="frame">
+                <a href="{% url 'fruits_def' %}?image=5">
+                    <img src="{% static 'webapp/images/mango.jpeg' %}" alt="Mango" class="img-fluid" width="200" style="border: 4px solid #000; 
+                    padding: 10px; 
+                    margin: 10px;
+                    height: 200px; border-radius: 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="frame">
+                <a href="{% url 'fruits_def' %}?image=6">
+                    <img src="{% static 'webapp/images/orange.jpeg' %}" alt="Orange" class="img-fluid" width="200" style="border: 4px solid #000; 
+                    padding: 10px; 
+                    margin: 10px;
+                    height: 200px;border-radius: 10px;" >
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
