@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>
+    {% block title %}
+    Fresh Food everyday
+    {% endblock title %}
+  </title>
+  <link rel="stylesheet" type="text/css" href="{% static 'webapp/css/bootstrap.min.css'%}">
+
+  <link href="/static/webapp/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lobster+Two:400,400italic,700,700italic' rel='stylesheet'
+    type='text/css'>
+  <!--Animation-->
+  <script src="/static/webapp/js/wow.min.js"></script>
+  <link href="static/webapp/css/animate.css" rel='stylesheet' type='text-center/css' />
+  <link rel="stylesheet" href="../../static/webapp/css/waves.css">
+
+  <style type="text/css">
+  .big-banner {
+    background-image: url('/static/webapp/images/slide_1.jpeg');
+    background-size: cover;  
+    background-repeat: no-repeat;
+    background-position: center;
+      height: 500px;
+      width: 100%;
+      padding-top:100px;
+    }
+
+    .i-am-center {
+      margin-left: 26%;
+      max-width: 100%;
+    }
+
+    .borders {
+      transition: transform .2s;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .borders:hover {
+      transform: scale(1.2);
+    }
+
+    .groceryStore {
+      transition: transform .2s;
+    }
+
+    .groceryStore:hover {
+      transform: scale(1.2);
+    }
+
+    .wrapper {
+      min-height: 100%;
+      height: 100%;
+      margin: 0 auto -155px;
+    }
+
+    .footer,
+    .push {
+      height: 155px;
+    }
+
+    .slider {
+      width: 500px;
+      height: 300px;
+      background-color: yellow;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .image-container {
+      width: 1500px;
+      background-color: pink;
+      height: 300px;
+      clear: both;
+      position: relative;
+      -webkit-transition: left 2s;
+      -moz-transition: left 2s;
+      -o-transition: left 2s;
+      transition: left 2s;
+    }
+
+    .slide {
+      float: left;
+      margin: 0px;
+      padding: 0px;
+      position: relative;
+    }
+
+    #slide-1:target~.image-container {
+      left: 0px;
+    }
+
+    #slide-2:target~.image-container {
+      left: -500px;
+    }
+
+    #slide-3:target~.image-container {
+      left: -1000px;
+    }
+
+    .buttons {
+      position: relative;
+      top: -20px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      height: 15px;
+      width: 15px;
+      border-radius: 50px;
+      background-color: rgba(0, 0, 255, 0.5);
+    }
+    nav{background-color:rgba(0, 0, 255, 0.5);}
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
+    <div class="container-fluid">
+
+      <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+        <ul class="navbar-nav ml-auto text-center">
+          <li class="nav-item active">
+            <a class="nav-link text-light" href="{% url 'restuarant'%}">&nbsp;
+              <strong style="color: black;">
+                For Customer
+              </strong>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mx-auto my-3 order-0 order-md-1 position-relative" >
+        <a class="mx-auto" href="#">
+          <img src="static/webapp/images/freshlogo.jpeg" style="height: 80px;" alt="Home"
+            class="rounded-circle img-responsive">
+        </a>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+      </div>
+
+      <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
+        <ul class="navbar-nav mr-auto text-center">
+          <li class="nav-item">
+            {% if request.user.is_authenticated %}
+            <a class="nav-link text-light" href="{% url 'rlogin'%}"> &nbsp;
+              <strong style="color: black;">
+                For Grocery Stores
+              </strong>
+            </a>
+            {% else %}
+            <a class="nav-link text-light" href="{% url 'rlogin'%}"> &nbsp;
+              <strong style="color: black;">
+                For Grocery Stores
+              </strong>
+            </a>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+  
+
+  <div class="jumbotron big-banner" >
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="col4 text-light ">
+            <h1 style="font-style:italic; font-family:sans-serif; ">
+              <strong>
+                Groceries That Make Life Delicious
+              </strong>
+            </h1>
+            <!-- <h2>
+              <strong>Register Now<br />and<br />Order Online</strong>
+            </h2> -->
+          </div>
+          <br>
+        </div>
+        <div class="col">
+          <div class="col4 text-light">
+            <h1 style="font-style:italic; font-family:sans-serif; ">
+              <strong>
+                From Farm to Table, We've Got You Covered
+              </strong>
+            </h1>
+            <!-- <h2>
+              <strong>Join Today<br />and<br>Increase Your Sale</strong>
+            </h2> -->
+          </div>
+          <br>
+          <!-- <a href="{% url 'rregister'%}" class="text-light">
+            <button type="button" class="btn btn-success btn-lg">
+              <strong>
+                Join Us
+              </strong>
+            </button>
+          </a> -->
+        </div>
+        <br>
+      </div>
+      <div style="margin-left: 700px;" class="row">
+        <div class="col-12 text-center d-flex align-items-center">
+            <a href="{% url 'register' %}" class="text-light">
+                <button type="button" class="btn btn-success btn-lg" style="background-color: blue;">
+                    <strong >Register</strong>
+                </button>
+            </a>
+        </div>
+    </div>
+    
+      <!-- <div class="row">
+        <a href="{% url 'register' %}" class="text-light">
+            <center>
+                <button type="button" class="btn btn-success btn-lg" style="background-color: blue;">
+                    <strong>Register</strong>
+                </button>
+            </center>
+        </a>
+    </div> -->
+    
+      <!-- <div cls="row">
+light"> <center>
+        <button type="button" class="btn b
+      <a href="{% url 'register'%}" class="text-tn-success btn-lg" fill="rgba(0, 0, 255, 0.5)">
+          <strong>
+            Register
+          </strong>
+        </button>
+      </a>
+    </center>
+    </div></div> -->
+
+  </div>
+  </div>
+
+  <div class="content">
+    <div class="ordering-section" id="Order">
+      <div class="container">
+        <div class="ordering-section-head text-center wow bounceInRight" data-wow-delay="0.4s">
+          <h3 style="font-family: Open Sans;">
+            Ordering Groceries was never so easy
+          </h3>
+          <br>
+          <h4>
+            But we are here!!
+          </h4>
+          <br>
+        </div>
+        <div class="i-am-center">
+          <div class="row ">
+
+            <div class="col-sm-12 col-md-4">
+              <a href="{% url 'rest' %}" style="text-decoration: none;">
+                <div style="font-family: Open Sans; background-image: linear-gradient(to right, violet, indigo);"
+                  class="borders text-light">
+                  <p style="opacity: 1;"><span>Your Stores...</span></p>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+              <a href="{% url 'restuarant' %}" style="text-decoration: none;">
+                <div style="font-family: Open Sans; background-image: linear-gradient(to right, orange, red);"
+                  class="borders text-light">
+                  <p><span>Pay Here...</span></p>
+                </div>
+              </a>
+            </div>
+
+            <div class="clearfix"></div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container col-md-9">
+    <div style="border-bottom: 2px black solid;" class="top-restaurent-head">
+      <h3 style="font-family: Open Sans;">Top Grocery Stores</h3>
+    </div>
+    <div class="row">
+      {% for restaurant in restaurants %}
+      <div class="col-md-4 ">
+        <div class="groceryStore">
+            <img style="width: 15rem; height: 10rem;" src="{{ restaurant.r_logo.url }}" class="img-responsive" alt="" />
+        </div>
+      </div>
+      {% endfor %}
+      <br>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <div class="container col-md-9">
+    <div style="border-bottom: 2px black solid;" class="top-cuisine-head">
+      <h3 style="font-family: Open Sans;">
+        Top Items
+      </h3>
+    </div>
+    <div class="row">
+      {% for item in items %}
+      <div class="col-md-4">
+        <div class="thumbnail groceryStore">
+          <a href="{% url 'fruits' %}">
+            <img style="width: 15rem; height: 10rem;" src="{{ item.image.url }}" class="img-responsive" alt="" />
+          </a>
+        </div>
+        <div class="caption col-sm-4">
+          <h5 class="text-secondary">
+            <strong style="color: black; font-family: Open Sans;">
+              {{ item.fname }}
+            </strong>
+          </h5>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="slider">
+      <span id="slide-1"></span>
+      <span id="slide-2"></span>
+      <!-- <span id="slide-3"></span> -->
+      <div class="image-container">
+        <img src="static/webapp/images/freshFoodEveryday.png" class="slide" width="500" height="300" />
+        <img src="static/webapp/images/orderOnline.png" class="slide" width="500" height="300" />
+        <!-- <img src="" class="slide" width="500" height="300" /> -->
+      </div>
+      <div class="buttons">
+        <a href="#slide-1"></a>
+        <a href="#slide-2"></a>
+        <!-- <a href="#slide-3"></a> -->
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="blue" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgb(127, 223, 255)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgb(127, 223, 255)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgb(127, 223, 255)" />
+      </g>
+</svg>
+
+    <!-- <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="pink" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(99,255,51,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(99,255,51,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(99,255,51,0.7)" />
+      </g>
+    </svg>
+  </div> -->
+  
+
+
+  <script type="text/javascript" src="{%static 'webapp/js/jquery.min.js'%}">
+  </script>
+  <script type="text/javascript" src="{%static 'webapp/js/bootstrap.min.js'%}"></script>
+  <script>
+    new WOW().init();
+  </script>
+  <script src="/static/webapp/js/simpleCart.min.js"> </script>
+  <script type="text/javascript" src="/static/webapp/js/move-top.js"></script>
+  <script type="text/javascript" src="/static/webapp/js/easing.js"></script>
+</body>
+
+</html>

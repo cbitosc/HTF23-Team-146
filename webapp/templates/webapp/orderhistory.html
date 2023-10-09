@@ -1,0 +1,49 @@
+{% extends 'webapp/base.html' %}
+
+{% block title %}
+Order history
+{% endblock title %}
+
+{% block body %}
+
+<div class="container">
+    <h2 style="font-weight: bolder;">Mini Statements</h2><br>
+    {% for history in histories %}
+    <h3 style="color: black;">Order Placed on: {{history.timestamp}}</h3> <br>
+    <h3 style="color: black;">Total amount of Order: Rs {{history.total_amount}}</h3> <br>
+    <h3 style="color: black;">Delivery Address: {{history.delivery_addr}}</h3> <br>
+    <h3 style="color: black;">Order Current Status: {{history.status}}</h3><br>
+    <h3 style="color: black;">Order given to: {{history.r_id}}</h3>
+    <br><br><br>
+    {% endfor %}
+
+    <div class="col-md-12 order-form-grid  wow fadeInLeft">
+
+        <h2 style="color: black; font-weight: bolder;">Items List:</h2>
+        <div>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                </thead>
+                {% for order in orders %}
+                {% for x in order.1 %}
+                <tr>
+                    <td>{{x.0}}</td>
+                    <td>{{x.1}}</td>
+                    <td>&#x20b9;{{x.2}}</td>
+                </tr>
+                {% endfor %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

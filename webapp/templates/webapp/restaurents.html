@@ -1,0 +1,103 @@
+{% extends 'webapp/base.html'%}
+{% block title %}
+Grocery Stores
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+  <h1 style="color: rgb(22, 179, 231);" class="text-center">
+    <strong>
+      Grocery Stores
+    </strong>
+  </h1>
+</div>
+<br>
+<div class="container">
+  <div>
+    <form class="form-horizontal" role="search" method="get" action=''>
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control input-lg " name="q" value="{{ request.GET.q }}"
+            placeholder="Search Stores " style="height: 40px; width: 50%; font-size: 20px;" /> &nbsp;&nbsp;
+          <span class='input-group-btn'>
+            <button class='glow-on-hover' type='submit' style="color: rgb(7, 132, 174); border: 1px solid grey;">
+              Search
+            </button>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    {% for rest in r_object %}
+    <div class="col-xs-7 col-md-6 flip-card" style="height: 140px; border: none; margin-bottom: 1rem;">
+      <div class="thumbnail flip-card-inner">
+        <div class="media mb-2 ml-8 flip-card-front"
+          style="border-radius: 10px; border-style: groove; border-width: 2px;">
+          <a href="{% url 'menu' rest.id %}" class="pull-left ">
+            <img src="{{rest.r_logo.url}}" class="img-thumbnail img-responsive " style="height: 130px; width: 130px;">
+          </a>
+          <div class="media-body pl-4">
+            <a href="{% url 'menu' rest.id %}" style="text-decoration: none !important;">
+              <h1 class="media-heading text-info mt-1" style="height: 20px;">
+                <strong>
+                  {{ rest.rname }}
+                </strong>
+              </h1>
+            </a>
+            <h4>
+              <font>
+                Description: <strong>{{ rest.info }}</strong>
+              </font>
+            </h4>
+            <h4>
+              <font>
+                Min: &#x20b9; {{ rest.min_ord }}
+              </font>
+            </h4>
+            <h4>
+              <font>
+                Status: <strong class="text-success">{{ rest.status }}</strong>
+              </font>
+            </h4>
+          </div>
+        </div>
+
+        <div class="media mb-2 ml-8 flip-card-back glow-on-hover">
+          <div class="media-body pl-4">
+            <br>
+            <h4 class="storeAddress">
+              <a href="http://maps.google.com/?q={{rest.location}}" target="_blank"
+                style="text-decoration: none !important;">
+                <font class="storeAddress">
+                  Address: <strong>{{ rest.location }}</strong>
+                </font>
+              </a>
+            </h4>
+            <br><br>
+            <a href="http://maps.google.com/?q={{rest.location}}" target="_blank"
+              style="text-decoration: none !important;">
+              <button class='glow-on-hover' type='submit' style="border: 1px solid grey;">
+                Show Location
+              </button>
+            </a>
+            <a href="{% url 'menu' rest.id %}" style="text-decoration: none !important;">
+              <button class='glow-on-hover' type='submit' style="border: 1px solid grey;">
+                Show Menu
+              </button>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {% endfor%}
+  </div>
+</div>
+
+{% endblock %}
